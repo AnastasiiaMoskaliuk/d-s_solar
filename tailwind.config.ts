@@ -25,19 +25,17 @@ const config: Config = {
       boxShadow: {},
       dropShadow: {},
       colors: {
-        amethyst: '#7B51A6',
-        darkerAmethyst: '#6C399E',
-        silver: '#595959',
-        pearl: '#F5F5F5',
-        coral: '#FF8585',
         onyx: '#000000',
         snow: '#ffffff',
-        charcoal: '#202020',
-        whisper: '#EAECF5',
-        darkBlack: "#030911",
-        darkSilver: "#363B40",
-        vividRed: "#EF2A2A",
-        cream: "#F2DEBA",
+        yellow: "#f7bd37",
+        darkGreen: "#062d32",
+        lightYellow: "#ffe095",
+        lightGreen: "#154b4b",
+        green: "#08363a",
+        grassGreen: "#0a4548"
+
+
+
       },
       keyframes: {
         pulse: {},
