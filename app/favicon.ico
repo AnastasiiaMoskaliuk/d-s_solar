@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">D&amp;S Solar favicon</title>
+  <defs>
+    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1769aa"/>
+      <stop offset="1" stop-color="#06365d"/>
+    </linearGradient>
+    <linearGradient id="s" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffde59"/>
+      <stop offset="1" stop-color="#f5a300"/>
+    </linearGradient>
+  </defs>
+  <circle cx="23" cy="22" r="13" fill="url(#s)"/>
+  <g fill="none" stroke="#f5a300" stroke-linecap="round" stroke-width="3">
+    <path d="M23 5V2"/><path d="M11 10L8 7"/><path d="M7 22H3"/>
+  </g>
+  <path d="M14 24H57L51 48H8Z" fill="url(#p)" stroke="#06365d" stroke-linejoin="round" stroke-width="3"/>
+  <g fill="none" stroke="#c7ebfb" stroke-linecap="round" stroke-width="1.5" opacity=".92">
+    <path d="M12 36H54"/><path d="M10 44H52"/><path d="M26 26L21 47"/><path d="M39 26L34 47"/><path d="M52 26L47 47"/>
+  </g>
+  <path d="M25 49L22 58M43 49L46 58M17 58H52" fill="none" stroke="#06365d" stroke-linecap="round" stroke-width="3"/>
+</svg>

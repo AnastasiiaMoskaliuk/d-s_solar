@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">D&amp;S Solar logo</title>
+  <desc id="desc">A solar panel with a rising sun above the D and S Solar wordmark.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1769aa"/>
+      <stop offset="1" stop-color="#06365d"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffde59"/>
+      <stop offset="1" stop-color="#f5a300"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rising sun -->
+  <g fill="none" stroke="#f5a300" stroke-linecap="round" stroke-width="10">
+    <path d="M147 94V63"/>
+    <path d="M110 108L87 85"/>
+    <path d="M184 108L207 85"/>
+    <path d="M96 142H65"/>
+  </g>
+  <circle cx="147" cy="142" r="58" fill="url(#sun)"/>
+
+  <!-- Solar panel -->
+  <path d="M89 143H392L346 238H43Z" fill="url(#panel)" stroke="#06365d" stroke-linejoin="round" stroke-width="10"/>
+  <g fill="none" stroke="#b8e1f7" stroke-linecap="round" stroke-width="5" opacity=".9">
+    <path d="M73 190H369"/>
+    <path d="M57 222H353"/>
+    <path d="M165 148L126 235"/>
+    <path d="M242 148L203 235"/>
+    <path d="M319 148L280 235"/>
+  </g>
+  <g fill="none" stroke="#06365d" stroke-linecap="round" stroke-width="10">
+    <path d="M148 239L128 282"/>
+    <path d="M275 239L295 282"/>
+    <path d="M102 282H321"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="450" y="211" fill="#06365d" font-family="Montserrat, Arial, sans-serif" font-size="112" font-weight="800" letter-spacing="-4">D&amp;S</text>
+  <text x="456" y="276" fill="#f5a300" font-family="Montserrat, Arial, sans-serif" font-size="53" font-weight="700" letter-spacing="10">SOLAR</text>
+</svg>
