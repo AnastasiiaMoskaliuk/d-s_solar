@@ -23,11 +23,12 @@ html {
   height: 100%;
   overflow-x: hidden; 
   scroll-behavior: smooth;
-  background-color: rgb(0, 0, 0);
+  background-color: #ffffff;
 }
 
 body {
   display: flex;
+  background-color: #ffffff;
   flex-direction: column;
   min-height: 100%;
   margin: 0;
@@ -43,11 +44,11 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(186, 184, 184);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(139, 139, 139);
+  background: #154b4b;
   border-radius: 10px;
 }

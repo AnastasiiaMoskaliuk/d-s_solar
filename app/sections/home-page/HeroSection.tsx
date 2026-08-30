@@ -1,9 +1,9 @@
-export default function HeroSection() {
+const HeroSection = () => {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-onyx">
+    <section className="relative h-[680px] flex lg:min-h-screen items-center overflow-hidden bg-onyx">
       <video
         src="https://res.cloudinary.com/dmxhv1hjs/video/upload/v1788071114/IMG_4904.mp4"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute top--10 h-[900px] lg:h-full w-full object-cover"
         controls={false}
         autoPlay
         muted
@@ -40,3 +40,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
+export default HeroSection;

@@ -5,7 +5,7 @@ import Button from "@/components/ButtonComponent";
 
 const benefits = ["Garantie bis zu 25 Jahre", "Montage in ganz Deutschland"];
 
-export default function RechnungSection() {
+const RechnungSection = () => {
   return (
     <section className="relative isolate overflow-hidden bg-[#062d32] px-5 pb-16 pt-6 text-[snow] sm:px-8 lg:min-h-[720px] lg:px-12 lg:pb-24 lg:pt-10">
       <div className="absolute -right-24 top-[-140px] -z-10 h-[420px] w-[420px] rounded-full bg-[#f7bd37]/20 blur-3xl" />
@@ -104,3 +104,5 @@ export default function RechnungSection() {
     </section>
   );
 }
+
+export default RechnungSection;
