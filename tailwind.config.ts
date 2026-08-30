@@ -28,14 +28,12 @@ const config: Config = {
         onyx: '#000000',
         snow: '#ffffff',
         yellow: "#f7bd37",
+        orange: "#bd9333",
         darkGreen: "#062d32",
-        lightYellow: "#ffe095",
+        star: "#ffe095",
         lightGreen: "#154b4b",
         green: "#08363a",
-        grassGreen: "#0a4548"
-
-
-
+        grass: "#0a4548",
       },
       keyframes: {
         pulse: {},

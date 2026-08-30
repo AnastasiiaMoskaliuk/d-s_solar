@@ -2,16 +2,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@config "./../tailwind.config.ts";
 
-@font-face {
-  font-weight: normal;
-  font-style: normal;
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 12px);
+  }
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 1.8s ease-in-out infinite;
 }
 
 html {
   height: 100%;
   overflow-x: hidden; 
   scroll-behavior: smooth;
+  background-color: rgb(0, 0, 0);
 }
 
 body {

@@ -14,7 +14,7 @@ interface ButtonProps {
   target?: string;
   tag?: "a" | "button";
   type?: "button" | "submit" | "reset";
-  background?: "darkBlack" | "transparent" | "onyx" | "white";
+  background?: "yellow" | "transparent" | "onyx" | "white";
   bordered?: boolean;
   fullWidth?: boolean;
   disabled?: boolean;
@@ -29,7 +29,7 @@ const Button: FC<ButtonProps> = ({
   target,
   tag = "button",
   type = "button",
-  background = "darkBlack",
+  background = "yellow",
   bordered = false,
   fullWidth = false,
   disabled,
@@ -39,33 +39,33 @@ const Button: FC<ButtonProps> = ({
   const Tag = tag;
   const finalBackground = bordered ? "transparent" : background;
   const backgroundClass =
-    finalBackground === "darkBlack"
-      ? "bg-darkBlack"
+    finalBackground === "yellow"
+      ? "bg-yellow"
       : finalBackground === "white"
-      ? "bg-show"
+      ? "bg-snow"
       : finalBackground === "onyx"
       ? "bg-onyx"
       : "bg-transparent";
   const disabledBg =
-    finalBackground === "darkBlack"
-      ? "disabled:bg-darkBlack  disabled:bg-opacity-50 disabled:text-snow"
-      : "disabled:bg-black  disabled:bg-opacity-60 disabled:text-snow";
+    finalBackground === "yellow"
+      ? "disabled:bg-yellow  disabled:bg-opacity-50 disabled:text-snow"
+      : "disabled:bg-onyx  disabled:bg-opacity-60 disabled:text-snow";
   const textClass =
-    finalBackground === "darkBlack" || finalBackground === "onyx" 
-      ? "text-white"
+    finalBackground === "yellow" || finalBackground === "onyx" 
+      ? "text-onyx"
       : bordered
-      ? "text-darkBlack"
+      ? "text-snow"
       : "";
 
-  const borderClass = bordered ? "border border-darkBlack border-solid" : "";
+  const borderClass = bordered ? "border border-snow border-solid" : "";
 
   const widthClass = fullWidth ? "w-[100%]" : "";
 
-  const hoverClass = bordered
-    ? "hover:bg-darkBlack hover:text-white transition-colors duration-300"
-    : finalBackground === "darkBlack"
-    ? "hover:bg-darkSilver transition-colors duration-300"
-    : "";
+const hoverClass = bordered
+  ? "transition-all duration-300 hover:scale-105 hover:border-snow hover:bg-snow/10"
+  : finalBackground === "yellow"
+  ? "group transition-all duration-300 hover:scale-105 hover:bg-orange"
+  : "";
 
   const renderIcon = () => {
     if (icon === "cube") {
@@ -139,7 +139,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <Tag
-      className={`${className} ${disabledBg} ${backgroundClass} ${borderClass} ${textClass} ${widthClass} ${hoverClass} py-[16px] px-[24px] rounded-[6px] flex items-center justify-center disabled:cursor-not-allowed group`}
+      className={`${className} ${disabledBg} ${backgroundClass} ${borderClass} ${textClass} ${widthClass} ${hoverClass} py-[16px] px-[24px] font-bold rounded-full flex items-center justify-center cursor-pointer disabled:cursor-not-allowed group`}
       type={type}
       target={target}
       href={href}
