@@ -28,9 +28,9 @@ const FooterComponent = () => {
             <Image
               src={Logo}
               alt="Logo"
-              width={380}
-              height={100}
-              className="w-[380px] h-[150px]"
+              width={180}
+              height={150}
+              className="w-[280px] h-[150px]"
               loading="lazy"
             />
           </Link>
