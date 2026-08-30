@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import "@mantine/core/styles.layer.css";
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from "@mantine/core";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import HeaderComponent from "@/components/HeaderComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,11 +25,16 @@ type LayoutProps = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="de" {...mantineHtmlProps} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <head>
+        <ColorSchemeScript forceColorScheme="dark" />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <MantineProvider forceColorScheme="dark">
+          <HeaderComponent />
+          <main>{children}</main>
+        </MantineProvider>
+      </body>
     </html>
   );
 }

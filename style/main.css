@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #000000;
 }
 
 * {
@@ -41,6 +42,7 @@ html {
 
 body {
   margin: 0;
+  background-color: #000000;
   font-family: "Frontrunner";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -82,4 +84,4 @@ img {
 
 li {
   list-style: none;
-}/*# sourceMappingURL=main.css.map */
+}
