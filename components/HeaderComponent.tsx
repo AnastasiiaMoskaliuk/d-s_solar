@@ -92,7 +92,7 @@ const HeaderComponent: FC = () => {
     <header
       className={`
     z-50 w-full py-[10px] lg:py-[30px]
-    ${isHomePage ? "absolute top-0 left-0 bg-transparent" : "sticky top-0 "}
+    ${isHomePage ? "absolute top-0 left-0 bg-transparent" : "relative top-0 "}
   `}
     >
       <div
