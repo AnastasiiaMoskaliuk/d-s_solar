@@ -1,22 +1,33 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { SolarProject } from "@/data/projekts";
+import Button from "@/components/ButtonComponent";
 import ParagraphsComponent from "@/components/ProjectParagraph";
+
+import right from "@/src/vectors/Right.svg";
 
 const SingleProjekt = ({ project }: { project: SolarProject }) => {
   return (
-    <section className="mx-[20px] mb-[50px] mt-[50px] md:mx-[50px] lg:mt-[80px]">
+    <section className="mx-[20px] mb-[50px] mt-[20px] md:mx-[50px]">
       <article className="mx-auto max-w-[1400px]">
-        <Link
-          href="/projekte"
-          className="mb-[30px] inline-block text-[#154b4b]"
-        >
-          ← Zurück zu Projekten
-        </Link>
-
+        <div className="w-full flex justify-start items-center group coursor-pointer">
+          <button className="group">
+            <Image
+              src={right}
+              alt="arrow"
+              className="rotate-180 transition-transform duration-300 group-hover:-translate-x-2"
+            />
+          </button>
+          <Button
+            tag="a"
+            text="Zurück zu Projekten"
+            background="transparent"
+            className="text-[14px] md:text-[16px] text-lightGreen font-medium  group-hover:text-lightGreen  group-hover:font-bold transition-all duration-300 transform !px-[15px] underline decoration-transparent group-hover:decoration-lightGreen decoration-2"
+            href="/projekte"
+          />
+        </div>
         {/* Заголовок */}
-        <div className="mb-[30px] text-center">
+        <div className="mb-[30px] mt-[30px] text-center">
           <h1 className="font-frontrunner text-[35px] leading-[45px] text-black md:text-[45px] lg:text-[60px] lg:leading-[70px]">
             {project.title}
           </h1>
@@ -24,13 +35,8 @@ const SingleProjekt = ({ project }: { project: SolarProject }) => {
 
         <hr className="mb-[35px] border-[#E5E8ED]" />
 
-        {/* Основний контент */}
         <div className="flex flex-col gap-[40px] lg:flex-row lg:gap-[70px]">
-          
-          {/* Ліва частина */}
           <div className="flex flex-col gap-[20px] lg:w-[35%]">
-            
-            {/* Головне фото */}
             <div className="relative h-[300px] w-full overflow-hidden rounded-[20px] md:h-[400px]">
               <Image
                 src={project.images[0].originalSrc}
@@ -39,23 +45,18 @@ const SingleProjekt = ({ project }: { project: SolarProject }) => {
                 className="object-cover"
               />
             </div>
-
-            {/* Інформація */}
             <div className="flex flex-wrap items-center gap-[8px] text-[14px] text-[#787A80] md:text-[16px]">
               <span className="rounded-full bg-[#154b4b]/10 px-[12px] py-[6px] text-[#154b4b]">
                 📍 {project.location}
               </span>
-
               {project.date && (
                 <span className="rounded-full bg-[#f7bd37]/20 px-[12px] py-[6px] text-[#154b4b]">
                   📅 {project.date}
                 </span>
               )}
             </div>
-
-            {/* Характеристики */}
-            <div className="rounded-[20px] bg-[#154b4b] p-[25px] text-white">
-              <h2 className="mb-[20px] text-[22px] font-bold">
+            <div className="rounded-[20px] bg-[#154b4b] p-[20px] text-[14px] text-white md:p-[25px] md:text-[16px]">
+              <h2 className="mb-[20px] text-[20px] font-bold md:text-[22px]">
                 Anlagendaten
               </h2>
 
@@ -112,16 +113,10 @@ const SingleProjekt = ({ project }: { project: SolarProject }) => {
             </div>
           </div>
 
-          {/* Права частина */}
           <div className="flex flex-col gap-[25px] lg:w-[65%]">
-
             {project.paragraphs?.map((paragraph) => (
-              <ParagraphsComponent
-                key={paragraph.id}
-                paragraph={paragraph}
-              />
+              <ParagraphsComponent key={paragraph.id} paragraph={paragraph} />
             ))}
-
           </div>
         </div>
 

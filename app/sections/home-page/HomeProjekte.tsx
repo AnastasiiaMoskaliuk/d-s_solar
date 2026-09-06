@@ -1,42 +1,61 @@
 "use client";
 
 import { Carousel } from "@mantine/carousel";
+import { useMediaQuery } from "@mantine/hooks";
+import { useMantineTheme } from "@mantine/core";
+import Autoplay from "embla-carousel-autoplay";
+import { useMemo } from "react";
+
 import { projectsData } from "@/data/projekts";
 import ProjektCard from "@/components/ProjektCard";
+import MainButton from "@/components/ButtonComponent";
 
 const HomeProjekte = () => {
+  const theme = useMantineTheme();
+
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+
+  const autoplay = useMemo(
+    () =>
+      Autoplay({
+        delay: 3000,
+        stopOnInteraction: false,
+      }),
+    [],
+  );
+
   return (
-    <section className="container pt-[80px] lg:pt-[110px]">
+    <section className="container pt-[80px] lg:pt-[110px] mb-[30px]">
       <div className="mb-[45px] flex flex-col items-center justify-center gap-[5px] lg:mb-[58px] lg:flex-row lg:justify-between xl:items-baseline">
-        <h2 className="font-frontrunner text-center text-[40px] leading-[50px] text-black md:text-[45px] xl:text-[60px]">
+        <h2 className="font-frontrunner text-center text-[40px] font-[700] leading-[50px] text-onyx md:text-[45px] xl:text-[60px]">
           Unsere Projekte
         </h2>
 
-        <a
+        <MainButton
+          text="Alle Projekte"
+          tag="a"
           href="/projekte"
-          className="rounded-full bg-[#154b4b] px-[24px] py-[12px] text-[14px] font-semibold text-white transition-all duration-300 hover:bg-[#f7bd37] hover:text-[#154b4b]"
-        >
-          Alle Projekte
-        </a>
-
+          className="!bg-[#154b4b] text-snow"
+        />
       </div>
+
       <Carousel
+        withControls={!mobile}
         withIndicators
-        withControls
-        slideSize={{
-          base: "90%",
-          sm: "70%",
-          md: "50%",
-          lg: "33.333333%",
-        }}
-        slideGap={{
-          base: "md",
-          lg: "xl",
-        }}
+        controlSize={40}
+        controlsOffset="xl"
+        slideSize={{ base: "100%", md: "50%" }}
+        slideGap={{ base: "20px", md: "30px" }}
+        plugins={[autoplay]}
         emblaOptions={{
           loop: true,
           align: "start",
-          skipSnaps: true,
+          slidesToScroll: mobile ? 1 : 2,
+        }}
+        classNames={{
+          indicators: "!gap-[8px] !bottom-[-25px]",
+          indicator:
+            "h-[8px] w-[8px] !bg-lightGreen !pacity-40 !data-[active]:opacity-100",
         }}
       >
         {projectsData.map((project) => (

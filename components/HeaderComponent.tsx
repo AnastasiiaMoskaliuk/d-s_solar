@@ -106,7 +106,7 @@ const HeaderComponent: FC = () => {
 
         <Button
           onClick={open}
-          className="xl:hidden ml-[60px] pr-[20px] hover:bg-transparent"
+          className="xl:!hidden pr-[20px] !bg-transparent"
         >
           <Image
             src={Burger}
