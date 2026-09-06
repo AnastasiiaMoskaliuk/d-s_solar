@@ -4,14 +4,22 @@ import LeistungenSection from "./sections/home-page/LeistungenSection";
 import RechnungSection from "./sections/home-page/RechnungSection";
 import UberUnsSection from "./sections/home-page/UeberUnsSection";
 
-export default function Home() {
+import { getProjects } from "@/data/getProjects";
+
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
-   <>
-   <HeroSection />
-   <LeistungenSection />
-   <RechnungSection />
-   <UberUnsSection />
-   <HomeProjekte />
-   </>
+    <>
+      <HeroSection />
+
+      <LeistungenSection />
+
+      <RechnungSection />
+
+      <UberUnsSection />
+
+      <HomeProjekte projects={projects} />
+    </>
   );
 }

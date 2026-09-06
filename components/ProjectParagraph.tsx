@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { FC } from "react";
 
-import { ProjectParagraph } from "@/data/projekts";
+import { ProjectParagraph } from "@/types/project";
 
 interface ParagraphsProps {
   paragraph: ProjectParagraph;
