@@ -1,7 +1,4 @@
-import Link from "next/link";
 import Button from "@/components/ButtonComponent";
-// import Image from "next/image";
-// import Logo from "@/src/logo.svg";
 
 const benefits = ["Garantie bis zu 25 Jahre", "Montage in ganz Deutschland"];
 
