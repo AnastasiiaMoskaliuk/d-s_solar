@@ -6,11 +6,15 @@ import { useMantineTheme } from "@mantine/core";
 import Autoplay from "embla-carousel-autoplay";
 import { useMemo } from "react";
 
-import { projectsData } from "@/data/projekts";
 import ProjektCard from "@/components/ProjektCard";
 import MainButton from "@/components/ButtonComponent";
 
-const HomeProjekte = () => {
+type HomeProjekteProps = {
+  projects: Awaited<ReturnType<typeof import("@/data/getProjects").getProjects>>;
+};
+
+const HomeProjekte = ({ projects }: HomeProjekteProps) => {
+  console.log("HOME PROJECTS:", projects);
   const theme = useMantineTheme();
 
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
@@ -25,7 +29,7 @@ const HomeProjekte = () => {
   );
 
   return (
-    <section className="container pt-[40px] mb-[30px]">
+    <section className="container mb-[30px] pt-[40px]">
       <div className="mb-[45px] flex flex-col items-center justify-center gap-[20px] lg:mb-[58px] lg:flex-row lg:justify-between xl:items-baseline">
         <h2 className="font-frontrunner text-center text-[40px] font-[700] leading-[50px] text-onyx md:text-[45px] xl:text-[60px]">
           Unsere Projekte
@@ -55,10 +59,10 @@ const HomeProjekte = () => {
         classNames={{
           indicators: "!gap-[8px] !bottom-[-25px]",
           indicator:
-            "h-[8px] w-[8px] !bg-lightGreen !pacity-40 !data-[active]:opacity-100",
+            "h-[8px] w-[8px] !bg-lightGreen !opacity-40 !data-[active]:opacity-100",
         }}
       >
-        {projectsData.map((project) => (
+        {projects.map((project) => (
           <Carousel.Slide key={project.id}>
             <ProjektCard project={project} />
           </Carousel.Slide>

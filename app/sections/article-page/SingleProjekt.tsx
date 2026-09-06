@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { SolarProject } from "@/data/projekts";
+import { SolarProject } from "@/types/project";
 import Button from "@/components/ButtonComponent";
 import ParagraphsComponent from "@/components/ProjectParagraph";
 
