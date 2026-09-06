@@ -25,8 +25,8 @@ const HomeProjekte = () => {
   );
 
   return (
-    <section className="container pt-[80px] lg:pt-[110px] mb-[30px]">
-      <div className="mb-[45px] flex flex-col items-center justify-center gap-[5px] lg:mb-[58px] lg:flex-row lg:justify-between xl:items-baseline">
+    <section className="container pt-[40px] mb-[30px]">
+      <div className="mb-[45px] flex flex-col items-center justify-center gap-[20px] lg:mb-[58px] lg:flex-row lg:justify-between xl:items-baseline">
         <h2 className="font-frontrunner text-center text-[40px] font-[700] leading-[50px] text-onyx md:text-[45px] xl:text-[60px]">
           Unsere Projekte
         </h2>
