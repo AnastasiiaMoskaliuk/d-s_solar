@@ -1,8 +1,10 @@
 import { notFound, redirect } from "next/navigation";
+import Link from "next/link";
 
 import { createClient } from "@/data/supabase/server";
 import ProjectForm from "@/components/admin/NewProjectForm";
 import ProjectImages from "@/components/admin/ProjectImages";
+import ProjectFeatures from "@/components/admin/ProjectFeatures";
 
 type EditProjectPageProps = {
   params: Promise<{
@@ -32,30 +34,35 @@ export default async function EditProjectPage({
     redirect("/admin/login");
   }
 
-  const { data: project, error } =
-    await supabase
-      .from("projects")
-      .select(`
-        *,
-        project_images (
-          id,
-          image_url,
-          alt,
-          sort_order
-        )
-      `)
-      .eq("id", projectId)
-      .single();
+  const { data: project, error } = await supabase
+    .from("projects")
+    .select(`
+      *,
+      project_images (
+        id,
+        image_url,
+        alt,
+        sort_order
+      ),
+      project_features (
+        id,
+        text,
+        sort_order
+      )
+    `)
+    .eq("id", projectId)
+    .single();
 
   if (error || !project) {
     notFound();
   }
 
-  const images = [
-    ...(project.project_images ?? []),
-  ].sort(
-    (a, b) =>
-      a.sort_order - b.sort_order,
+  const images = [...(project.project_images ?? [])].sort(
+    (a, b) => a.sort_order - b.sort_order,
+  );
+
+  const features = [...(project.project_features ?? [])].sort(
+    (a, b) => a.sort_order - b.sort_order,
   );
 
   return (
@@ -72,39 +79,59 @@ export default async function EditProjectPage({
         </div>
 
         <div className="flex flex-col gap-[25px]">
+          {/* ОСНОВНА ІНФОРМАЦІЯ */}
           <ProjectForm
             project={{
               id: project.id,
               title: project.title,
-              shortTitle:
-                project.short_title ?? "",
+              shortTitle: project.short_title ?? "",
               handle: project.handle,
               location: project.location,
               date: project.date ?? "",
               power: project.power ?? "",
-              panels:
-                project.panels ?? undefined,
-              panelType:
-                project.panel_type ?? "",
-              inverter:
-                project.inverter ?? "",
-              battery:
-                project.battery ?? "",
-              roofType:
-                project.roof_type ?? "",
+              panels: project.panels ?? undefined,
+              panelType: project.panel_type ?? "",
+              inverter: project.inverter ?? "",
+              battery: project.battery ?? "",
+              roofType: project.roof_type ?? "",
               installationTime:
                 project.installation_time ?? "",
-              description:
-                project.description,
-              details:
-                project.details ?? "",
+              description: project.description,
+              details: project.details ?? "",
             }}
           />
 
+          {/* ФОТО */}
           <ProjectImages
             projectId={project.id}
             initialImages={images}
           />
+
+          {/* ХАРАКТЕРИСТИКИ */}
+          <ProjectFeatures
+            projectId={project.id}
+            initialFeatures={features}
+          />
+
+          {/* ACTIONS */}
+          <div className="sticky bottom-[20px] z-20 rounded-[16px] border border-[#ddd] bg-white/95 p-[15px] shadow-lg backdrop-blur-md">
+            <div className="flex flex-col-reverse gap-[10px] sm:flex-row sm:justify-end">
+              <Link
+                href="/admin/projects"
+                className="rounded-[10px] border border-[#154b4b] px-[25px] py-[13px] text-center font-semibold text-[#154b4b] transition hover:bg-[#154b4b] hover:text-white"
+              >
+                Abbrechen
+              </Link>
+
+              <button
+                type="submit"
+                form="project-form"
+                className="rounded-[10px] bg-[#f7bd37] px-[25px] py-[13px] font-bold text-[#154b4b] transition hover:opacity-90"
+              >
+                Änderungen speichern
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>

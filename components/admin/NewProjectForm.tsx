@@ -125,7 +125,7 @@ const ProjectForm = ({ project }: ProjectFormProps) => {
         return;
       }
 
-      router.push("/admin/projects");
+      router.push("/admin/projects?updated=1");
       router.refresh();
 
       return;
@@ -151,12 +151,13 @@ const ProjectForm = ({ project }: ProjectFormProps) => {
       return;
     }
 
-    router.push("/admin/projects");
+    router.push("/admin/projects?created=1");
     router.refresh();
   };
 
   return (
     <form
+      id="project-form"
       onSubmit={handleSubmit}
       className="flex flex-col gap-[25px]"
     >
@@ -328,30 +329,6 @@ const ProjectForm = ({ project }: ProjectFormProps) => {
           {error}
         </div>
       )}
-
-      {/* ACTIONS */}
-      <div className="flex flex-col-reverse gap-[10px] sm:flex-row sm:justify-end">
-        <button
-          type="button"
-          onClick={() => router.push("/admin/projects")}
-          disabled={loading}
-          className="rounded-[10px] border border-[#154b4b] px-[25px] py-[13px] font-semibold text-[#154b4b] transition hover:bg-[#154b4b] hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Abbrechen
-        </button>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="rounded-[10px] bg-[#f7bd37] px-[25px] py-[13px] font-bold text-[#154b4b] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {loading
-            ? "Speichern..."
-            : isEditMode
-              ? "Änderungen speichern"
-              : "Projekt erstellen"}
-        </button>
-      </div>
     </form>
   );
 };
