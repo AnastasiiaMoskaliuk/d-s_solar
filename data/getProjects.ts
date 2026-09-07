@@ -1,6 +1,8 @@
+import { unstable_noStore } from "next/cache";
 import { supabase } from "./supabase";
 
 export async function getProjects() {
+  unstable_noStore();
   const { data, error } = await supabase
     .from("projects")
     .select(`
@@ -84,6 +86,7 @@ export async function getProjects() {
 }
 
 export async function getProjectByHandle(handle: string) {
+  unstable_noStore();
   const { data, error } = await supabase
     .from("projects")
     .select(`
